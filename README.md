@@ -4,7 +4,12 @@ This file is a template for containerized Python applications that requires mini
 ## Setup
 
 ```shell
-pip install -r requirements.txt
+./install.sh
+```
+
+### Working Locally
+```
+./install_dev.sh
 ```
 
 ## Run

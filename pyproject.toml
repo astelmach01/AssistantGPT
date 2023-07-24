@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "assistantgpt"
+version = "0.1.0"
+description = "Your personal assistant, powered by chatGPT"
+authors = ["astelmach01 <astelmach20@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+rich-click = "^1.6.1"
+python-dotenv = "^1.0.0"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^6.0.0"
+pre-commit = "^3.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
