@@ -17,7 +17,6 @@ jobs:
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
           poetry install --no-interaction --no-ansi
-          source "$(poetry env info --path)/bin/activate"
           pip install flake8 pytest
       - name: Lint with flake8
         run: |
