@@ -1,7 +1,10 @@
 #!/bin/bash
 
-install.sh
+# Activate the virtual environment
+source "$(poetry env info --path)/bin/activate"
 
-poetry install --with dev
+# Install dev dependencies
+poetry install --no-interaction --no-ansi --with dev
 
+# Install pre-commit hooks
 pre-commit install
