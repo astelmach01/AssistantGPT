@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install poetry
-        run: pipx install poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
       - uses: actions/setup-python@v4
         with:
           python-version-file: '.python-version'
