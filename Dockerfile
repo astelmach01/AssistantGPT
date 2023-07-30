@@ -26,6 +26,6 @@ RUN poetry config virtualenvs.create false && poetry install --no-interaction --
 # Creating folders, and files for a project:
 COPY . /app
 
-EXPOSE 8000
+EXPOSE $PORT
 
 RUN ["python", "manage.py", "runserver"]
