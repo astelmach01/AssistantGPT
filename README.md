@@ -8,7 +8,7 @@ This file is a template for containerized Python applications that requires mini
 ```
 
 ### Working Locally
-```
+```shell
 ./scripts/install_dev.sh
 ```
 
