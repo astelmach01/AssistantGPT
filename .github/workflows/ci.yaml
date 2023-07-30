@@ -17,7 +17,7 @@ jobs:
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
           poetry install --no-interaction --no-ansi
-          pip install flake8 pytest
+          pip install flake8 pytest mypy
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
