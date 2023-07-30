@@ -5,6 +5,9 @@ load_dotenv()
 
 
 class Settings(BaseSettings):
+    project_name: str
+    environment: str
+
     openai_api_key: str
     openai_organization: str
 
