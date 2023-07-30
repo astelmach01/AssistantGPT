@@ -6,6 +6,7 @@ load_dotenv()
 
 class Settings(BaseSettings):
     openai_api_key: str
+    openai_organization: str
 
     class Config:
         env_file = ".env"
