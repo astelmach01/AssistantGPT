@@ -21,5 +21,5 @@ This file is a template for containerized Python applications that requires mini
 ## Run
 
 ```shell
-python -m app run
+poetry run python main.py
 ```
