@@ -5,6 +5,7 @@ load_dotenv()
 
 
 class Settings(BaseSettings):
+    API_V1_STR: str
     project_name: str
     environment: str
 
