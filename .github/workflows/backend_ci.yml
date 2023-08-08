@@ -19,6 +19,7 @@ jobs:
         with:
           python-version-file: '.python-version'
           cache: 'pip'
+          working-directory: ./backend
       - name: Install dependencies
         run: |
           pip install flake8 pytest
