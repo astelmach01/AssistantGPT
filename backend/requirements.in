@@ -1,5 +1,6 @@
 pydantic
 flake8
+pytest
 python-dotenv
 
 openai

@@ -53,6 +53,8 @@ idna==3.4
     #   anyio
     #   requests
     #   yarl
+iniconfig==2.0.0
+    # via pytest
 langchain==0.0.253
     # via -r requirements.in
 langsmith==0.0.19
@@ -78,9 +80,13 @@ openai==0.27.8
 openapi-schema-pydantic==1.2.4
     # via langchain
 packaging==23.1
-    # via marshmallow
+    # via
+    #   marshmallow
+    #   pytest
 passlib[bcrypt]==1.7.4
     # via -r requirements.in
+pluggy==1.2.0
+    # via pytest
 pyasn1==0.5.0
     # via
     #   python-jose
@@ -98,6 +104,8 @@ pydantic==1.10.12
     #   openapi-schema-pydantic
 pyflakes==3.1.0
     # via flake8
+pytest==7.4.0
+    # via -r requirements.in
 python-dotenv==1.0.0
     # via -r requirements.in
 python-jose[cryptography]==3.3.0
