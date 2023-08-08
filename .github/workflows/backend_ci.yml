@@ -1,4 +1,4 @@
-name: AssistantGPT
+name: AssistantGPT Backend CI
 
 on:
   pull_request:
