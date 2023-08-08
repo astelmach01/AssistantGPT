@@ -27,7 +27,6 @@ jobs:
       - run: python -m venv ./.venv && . ./.venv/bin/activate &&
           pip install -r requirements.txt
         if: steps.cache-venv.outputs.cache-hit != 'true'
-      # Run tests
       # Note that you have to activate the virtualenv in every step
       # because GitHub actions doesn't preserve the environment
       - name: Lint with flake8
