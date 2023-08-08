@@ -1,6 +1,13 @@
 pydantic
+python-dotenv
 
 openai
 langchain
 
 fastapi
+uvicorn
+authlib
+python-multipart
+python-jose[cryptography]
+passlib[bcrypt]
+requests
