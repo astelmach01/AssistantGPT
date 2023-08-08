@@ -40,8 +40,6 @@ ecdsa==0.18.0
     # via python-jose
 fastapi==0.101.0
     # via -r requirements.in
-flake8==6.1.0
-    # via -r requirements.in
 frozenlist==1.4.0
     # via
     #   aiohttp
@@ -61,8 +59,6 @@ langsmith==0.0.19
     # via langchain
 marshmallow==3.20.1
     # via dataclasses-json
-mccabe==0.7.0
-    # via flake8
 multidict==6.0.4
     # via
     #   aiohttp
@@ -91,8 +87,6 @@ pyasn1==0.5.0
     # via
     #   python-jose
     #   rsa
-pycodestyle==2.11.0
-    # via flake8
 pycparser==2.21
     # via cffi
 pydantic==1.10.12
@@ -102,8 +96,6 @@ pydantic==1.10.12
     #   langchain
     #   langsmith
     #   openapi-schema-pydantic
-pyflakes==3.1.0
-    # via flake8
 pytest==7.4.0
     # via -r requirements.in
 python-dotenv==1.0.0
