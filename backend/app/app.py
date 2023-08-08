@@ -54,7 +54,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "ello World"}
+    return {"message": "Hello World"}
 
 
 def verify_password(plain_password, hashed_password):
