@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'backend/**' # Only trigger the workflow if changes are made in the backend folder
+      - '.github/workflows/backend_ci.yml' # Only trigger the workflow if changes are made in the workflow file
 
 jobs:
   CI:
