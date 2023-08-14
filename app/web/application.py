@@ -1,4 +1,3 @@
-from importlib import metadata
 from pathlib import Path
 
 from app.web.api.router import api_router
