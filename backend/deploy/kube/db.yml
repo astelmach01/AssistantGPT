@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: app
+  name: backend-db
+spec:
+  selector:
+    matchLabels:
+      app: backend-db
+  template:
+    metadata:
+      labels:
+        app: backend-db
+    spec:
+      containers:
+      - name: database
+        image: bitnami/mysql:8.0.30
+        resources:
+          limits:
+            memory: "300Mi"
+            cpu: "200m"
+        env:
+        - name: MYSQL_PASSWORD
+          value: "app"
+        - name: MYSQL_USER
+          value: "app"
+        - name: MYSQL_DATABASE
+          value: "app"
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        ports:
+        - containerPort: 3306
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: app
+  name: "backend-db-service"
+spec:
+  selector:
+    app: backend-db
+  ports:
+  - port: 3306
+    targetPort: 3306
+---
