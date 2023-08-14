@@ -32,20 +32,12 @@ class Settings(BaseSettings):
     # quantity of workers for uvicorn
     workers_count: int = 1
     # Enable uvicorn reloading
-    reload: bool = False
+    reload: bool = True
 
     # Current environment
     environment: str = "dev"
 
     log_level: LogLevel = LogLevel.INFO
-
-    # Variables for the database
-    db_host: str = "localhost"
-    db_port: int = 3306
-    db_user: str = "app"
-    db_pass: str = "app"
-    db_base: str = "app"
-    db_echo: bool = False
 
     # Variables for RabbitMQ
     rabbit_host: str = "app-rmq"
@@ -56,22 +48,6 @@ class Settings(BaseSettings):
 
     rabbit_pool_size: int = 2
     rabbit_channel_pool_size: int = 10
-
-    @property
-    def db_url(self) -> URL:
-        """
-        Assemble database URL from settings.
-
-        :return: database URL.
-        """
-        return URL.build(
-            scheme="mysql",
-            host=self.db_host,
-            port=self.db_port,
-            user=self.db_user,
-            password=self.db_pass,
-            path=f"/{self.db_base}",
-        )
 
     @property
     def rabbit_url(self) -> URL:
