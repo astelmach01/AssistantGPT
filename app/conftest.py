@@ -6,15 +6,11 @@ import pytest
 from aio_pika import Channel
 from aio_pika.abc import AbstractExchange, AbstractQueue
 from aio_pika.pool import Pool
-from app.db.config import database
-from app.db.utils import create_database, drop_database
 from app.services.rabbit.dependencies import get_rmq_channel_pool
 from app.services.rabbit.lifetime import init_rabbit, shutdown_rabbit
-from app.settings import settings
 from app.web.application import get_app
 from fastapi import FastAPI
 from httpx import AsyncClient
-from sqlalchemy.engine import create_engine
 
 
 @pytest.fixture(scope="session")
@@ -25,34 +21,6 @@ def anyio_backend() -> str:
     :return: app name.
     """
     return "asyncio"
-
-
-@pytest.fixture(autouse=True)
-async def initialize_db() -> AsyncGenerator[None, None]:
-    """
-    Create models and databases.
-
-    :yield: new engine.
-    """
-    from app.db.meta import meta  # noqa: WPS433
-    from app.db.models import load_all_models  # noqa: WPS433
-
-    load_all_models()
-
-    create_database()
-
-    engine = create_engine(str(settings.db_url))
-    with engine.begin() as conn:
-        meta.create_all(conn)
-
-    engine.dispose()
-
-    await database.connect()
-
-    yield
-
-    await database.disconnect()
-    drop_database()
 
 
 @pytest.fixture
