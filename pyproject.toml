@@ -21,6 +21,7 @@ ormar = "^0.12.2"
 aiofiles = "^23.1.0"
 httptools = "^0.6.0"
 aio-pika = "^9.1.4"
+boto3 = "^1.28.26"
 
 
 [tool.poetry.dev-dependencies]
