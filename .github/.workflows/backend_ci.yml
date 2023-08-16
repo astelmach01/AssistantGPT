@@ -1,0 +1,59 @@
+name: AssistantGPT Backend
+
+on:
+  pull_request:
+    paths:
+      - 'backend/**' # Only trigger the workflow if changes are made in the backend folder
+      - '.github/workflows/backend_ci.yml' # Only trigger the workflow if changes are made in the workflow file
+
+jobs:
+  black:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install poetry
+        run: pipx install poetry
+      - uses: actions/setup-python@v4
+        with:
+          python-version-file: .python-version
+          cache: 'poetry'
+      - run: poetry install
+      - name: Run black check
+        run: poetry run black --check .
+
+  mypy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install poetry
+        run: pipx install poetry
+      - uses: actions/setup-python@v4
+        with:
+          python-version-file: .python-version
+          cache: 'poetry'
+      - run: poetry install
+      - name: Run mypy check
+        run: poetry run mypy .
+
+  pytest:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install poetry
+        run: pipx install poetry
+      - uses: actions/setup-python@v4
+        with:
+          python-version-file: backend/.python-version
+          cache: 'poetry'
+      - run: poetry install
+      - name: Run pytest check
+        run: poetry run pytest -vv --cov="backend" .
