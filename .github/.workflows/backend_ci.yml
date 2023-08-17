@@ -1,4 +1,4 @@
-name: AssistantGPT Backend
+name: Cosmo Backend
 
 on:
   pull_request:
