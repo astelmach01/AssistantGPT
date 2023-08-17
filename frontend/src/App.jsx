@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
 
@@ -9,6 +9,7 @@ function App() {
     if (e.keyCode === 13) {
       e.preventDefault();
       if (message.trim() !== '') {
+        // eslint-disable-next-line no-use-before-define
         await sendMessage(message);
         setMessage('');
       }
@@ -17,7 +18,7 @@ function App() {
 
   const sendMessage = async (text) => {
     try {
-      await axios.post('/chat', {message: text});
+      await axios.post('/chat', { message: text });
     } catch (error) { /* empty */
     }
   };
