@@ -1,23 +1,46 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import axios from 'axios';
 import './App.css';
 
 function App() {
+  const [message, setMessage] = useState('');
+
+  const handleKeyDown = async (e) => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      if (message.trim() !== '') {
+        console.log(message)
+        await sendMessage(message);
+        setMessage('');
+      }
+    }
+  };
+
+  const sendMessage = async (text) => {
+    try {
+      await axios.post('/chat', {message: text});
+      console.log('Message sent:', text);
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Cosmo Chat</h1>
       </header>
+      <main className="App-main">
+        <div className="message-box">
+          <textarea
+            rows={4}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Type your message here..."
+          />
+        </div>
+      </main>
     </div>
   );
 }
