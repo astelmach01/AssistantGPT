@@ -9,7 +9,6 @@ function App() {
     if (e.keyCode === 13) {
       e.preventDefault();
       if (message.trim() !== '') {
-        console.log(message)
         await sendMessage(message);
         setMessage('');
       }
@@ -19,9 +18,7 @@ function App() {
   const sendMessage = async (text) => {
     try {
       await axios.post('/chat', {message: text});
-      console.log('Message sent:', text);
-    } catch (error) {
-      console.error('Error sending message:', error);
+    } catch (error) { /* empty */
     }
   };
 
