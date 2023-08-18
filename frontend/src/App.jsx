@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
-import { Analytics } from '@vercel/analytics/react';
+import { inject } from '@vercel/analytics';
 import FloatingCircle from './FloatingCircle';
+
+inject();
 
 function App() {
   const [message, setMessage] = useState('');
@@ -26,7 +28,6 @@ function App() {
 
   return (
     <div className="App">
-      <Analytics />
       <header className="App-header">
         <h1>Cosmo Chat</h1>
       </header>
