@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
+import { Analytics } from '@vercel/analytics/react';
 import FloatingCircle from './FloatingCircle';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <div className="App">
+      <Analytics />
       <header className="App-header">
         <h1>Cosmo Chat</h1>
       </header>
