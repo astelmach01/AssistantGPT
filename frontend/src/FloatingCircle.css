@@ -1,0 +1,40 @@
+/* FloatingCircle.css */
+
+/* it should be in the center of the page and should be 100px in diameter. */
+.circle {
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  width: 100px;
+  height: 100px;
+  transition: 0.3s;
+  transform: translate(-50%, -50%);
+  animation: my-animation 2s linear infinite;
+  animation-delay: 0.5s;
+}
+
+
+/* Make the circle change color when hovered over */
+.circle:hover {
+  background: linear-gradient(to bottom right, #6e5dfc, #a44afe);
+  cursor: pointer;
+}
+
+@keyframes my-animation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
