@@ -9,7 +9,7 @@ function App() {
   const [message, setMessage] = useState('');
   const sendMessage = async (text) => {
     try {
-      await axios.post('/chat', { message: text });
+      await axios.post('/chat/request', { prompt: text });
       console.log('Message sent:', text);
     } catch (error) {
       console.error('Error sending message:', error);
