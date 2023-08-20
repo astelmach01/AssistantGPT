@@ -1,4 +1,4 @@
-# Cosmo (archived in favor of splitting up monorepo
+# Cosmo (archived in favor of splitting up monorepo)
 
 <img src="cosmo_logo.png" width="450" height="450" alt="Cosmo Logo">
 
