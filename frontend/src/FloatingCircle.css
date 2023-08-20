@@ -23,6 +23,7 @@
 .circle:hover {
   background: linear-gradient(to bottom right, #6e5dfc, #a44afe);
   cursor: pointer;
+  transition: 0.3s;
 }
 
 @keyframes my-animation {

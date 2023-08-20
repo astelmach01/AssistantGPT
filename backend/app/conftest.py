@@ -6,11 +6,12 @@ import pytest
 from aio_pika import Channel
 from aio_pika.abc import AbstractExchange, AbstractQueue
 from aio_pika.pool import Pool
+from fastapi import FastAPI
+from httpx import AsyncClient
+
 from .services.rabbit.dependencies import get_rmq_channel_pool
 from .services.rabbit.lifetime import init_rabbit, shutdown_rabbit
 from .web.application import get_app
-from fastapi import FastAPI
-from httpx import AsyncClient
 
 
 @pytest.fixture(scope="session")
