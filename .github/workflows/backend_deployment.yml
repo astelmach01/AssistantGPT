@@ -3,10 +3,10 @@ name: Deploy
 on:
   push:
     branches:
-    - main
+      - main
     paths:
-    - 'backend/**'     # Only trigger the workflow if changes are made in the backend folder
-    - '.github/workflows/backend_deployment.yml'     # Only trigger the workflow if changes are made in the workflow file
+      - 'backend/**'     # Only trigger the workflow if changes are made in the backend folder
+      - '.github/workflows/backend_deployment.yml'     # Only trigger the workflow if changes are made in the workflow file
 
 jobs:
   build:
@@ -15,9 +15,9 @@ jobs:
       run:
         working-directory: backend
     steps:
-    - uses: actions/checkout@v2
-    - uses: akhileshns/heroku-deploy@v3.12.13
-      with:
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: ${{secrets.APP_NAME}}   #Must be unique in Heroku
-        heroku_email: ${{secrets.HEROKU_EMAIL}}
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.13
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.APP_NAME}}   #Must be unique in Heroku
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
