@@ -3,8 +3,8 @@ name: Cosmo Frontend
 on:
   pull_request:
     paths:
-      - 'frontend/**' # Only trigger the workflow if changes are made in the backend folder
-      - '.github/workflows/frontend_ci.yml' # Only trigger the workflow if changes are made in the workflow file
+      - 'frontend/**'   # Only trigger the workflow if changes are made in the backend folder
+      - '.github/workflows/frontend_ci.yml'   # Only trigger the workflow if changes are made in the workflow file
 
 jobs:
   build:
@@ -30,6 +30,6 @@ jobs:
         # Custom script for checking the linting and formatting being in place
         run: npm run lint
 
-      # Run test cases and this could ensure minimum coverage as well if set
+        # Run test cases and this could ensure minimum coverage as well if set
       - name: Test
         run: npm run test

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
 import { inject } from '@vercel/analytics';
-import FloatingCircle from './FloatingCircle';
 
 inject();
 
@@ -10,7 +9,7 @@ function App() {
   const [message, setMessage] = useState('');
   const sendMessage = async (text) => {
     try {
-      await axios.post('/chat', { message: text });
+      await axios.post('/chat/request', { prompt: text });
       console.log('Message sent:', text);
     } catch (error) {
       console.error('Error sending message:', error);
@@ -31,7 +30,6 @@ function App() {
       <header className="App-header">
         <h1>Cosmo Chat</h1>
       </header>
-      <FloatingCircle />
       <main className="App-main">
         <div className="message-box">
           <textarea

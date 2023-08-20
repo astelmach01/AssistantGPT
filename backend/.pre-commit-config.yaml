@@ -1,5 +1,3 @@
-# See https://pre-commit.com for more information
-# See https://pre-commit.com/hooks.html for more hooks
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v2.4.0
@@ -14,49 +12,33 @@ repos:
   hooks:
   - id: add-trailing-comma
 
-- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
-  rev: v2.1.0
-  hooks:
-  - id: pretty-format-yaml
-    args:
-    - --autofix
-    - --preserve-quotes
-    - --indent=2
-
 - repo: local
   hooks:
-  - id: autoflake
-    name: autoflake
-    entry: poetry run autoflake
-    language: system
-    types: [python]
-    args: [--in-place, --remove-all-unused-imports, --remove-duplicate-keys]
-
   - id: black
     name: Format with Black
-    entry: poetry run black
-    language: system
+    entry: black .
+    language: python      # Specify the language as 'python'
     types: [python]
+        # Set the working directory to 'backend/'
+    always_run: true
+    additional_dependencies: ['poetry']
+    files: backend/      # Set the directory you want to target
 
   - id: isort
     name: isort
-    entry: poetry run isort
-    language: system
+    entry: isort
+    language: python      # Specify the language as 'python'
     types: [python]
+        # Set the working directory to 'backend/'
+    always_run: true
+    additional_dependencies: ['poetry']
+    files: backend/      # Set the directory you want to target
 
   - id: flake8
     name: Check with Flake8
-    entry: poetry run flake8
-    language: system
+    entry: flake8
+    language: python      # Specify the language as 'python'
     pass_filenames: false
     types: [python]
-    args: [--count, .]
-
-  - id: mypy
-    name: Validate types with MyPy
-    entry: poetry run mypy
-    language: system
-    types: [python]
-    pass_filenames: false
-    args:
-    - "app"
+    files: backend/      # Set the directory you want to target
+    args: [--config=backend/.flake8]

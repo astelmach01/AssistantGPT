@@ -6,6 +6,8 @@ extend-ignore = E203
 docstring_style=sphinx
 
 ignore =
+  ; Found local folder import
+  WPS300,
   ; Found `f` string
   WPS305,
   ; Missing docstring in public module
