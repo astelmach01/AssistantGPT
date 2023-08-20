@@ -25,7 +25,7 @@ repos:
   hooks:
   - id: black
     name: Format with Black
-    entry: black
+    entry: black .
     language: python      # Specify the language as 'python'
     types: [python]
         # Set the working directory to 'backend/'
