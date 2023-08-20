@@ -1,10 +1,13 @@
-FROM python:3.11.4-slim-bullseye as prod
+FROM python:3.11-slim-buster as prod
+
 RUN apt-get update && apt-get install -y \
   default-libmysqlclient-dev \
-  gcc \
   pkg-config \
+  gcc \
+  ca-certificates \
+  pkg-config \
+  openjdk-11-jdk \
   && rm -rf /var/lib/apt/lists/*
-
 
 RUN pip install poetry==1.4.2
 
@@ -12,7 +15,7 @@ RUN pip install poetry==1.4.2
 RUN poetry config virtualenvs.create false
 
 # Copying requirements of a project
-COPY pyproject.toml poetry.lock /app/src/
+COPY ../pyproject.toml /app/src/
 WORKDIR /app/src
 
 # Installing requirements
@@ -20,9 +23,10 @@ RUN poetry install --only main
 # Removing gcc
 RUN apt-get purge -y \
   gcc \
+  pkg-config \
   && rm -rf /var/lib/apt/lists/*
 
-# Copying actuall application
+# Copying actual application
 COPY . /app/src/
 RUN poetry install --only main
 
