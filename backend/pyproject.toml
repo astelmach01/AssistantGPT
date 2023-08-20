@@ -23,6 +23,7 @@ aiofiles = "^23.1.0"
 httptools = "^0.6.0"
 aio-pika = "^9.1.4"
 boto3 = "^1.28.26"
+pytest = "^7.4.0"
 
 
 [tool.poetry.dev-dependencies]
